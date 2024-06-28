@@ -10,6 +10,15 @@ const Post = sequelize.define('Post', {
     type: DataTypes.TEXT,
     allowNull: false
   }
+},{
+  hooks:{
+    beforeCreate: (post,options)=>{
+      console.log('Before creating a post:',post)
+    },
+    afterCreate: (post,options) => {
+      console.log('After creating a post:',post)
+    }
+  }
 });
 
 module.exports = Post;
